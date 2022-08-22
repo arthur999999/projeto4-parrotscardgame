@@ -29,9 +29,9 @@ const cardShowList = []
 for (let card of cardsNone) {
   cardShowList.push(card)
 }
-console.log(cardShowList)
+
 cardShowList.length = cardsNum
-console.log(cardShowList)
+
 for (let card of cardShowList) {
   card.classList.add('show')
 }
@@ -41,11 +41,12 @@ sorteador.sort(comparador)
 function comparador() {
   return Math.random() - 0.5
 }
-console.log(sorteador)
 
 /* ======= REVEAL CARDS =======*/
+let cont = 0
 let xReveal = 0
 function reveal(a, b) {
+  cont++
   xReveal++
   if (xReveal < 3) {
     const cardi = a
@@ -53,13 +54,13 @@ function reveal(a, b) {
     cardi.innerHTML = sorteador[b]
   }
   let matchClass = document.querySelectorAll('.box .javafun')
-  console.log(matchClass)
-  console.log(matchClass[1])
 
   if (matchClass.length == 2) {
     if (matchClass[0].innerHTML == matchClass[1].innerHTML) {
       matchClass[0].classList.remove('javafun')
       matchClass[1].classList.remove('javafun')
+      matchClass[0].classList.add('count')
+      matchClass[1].classList.add('count')
       xReveal = 0
     } else {
       const bilo = setInterval(noSame, 1000)
@@ -73,6 +74,9 @@ function reveal(a, b) {
       }
     }
   }
+  const countList = document.querySelectorAll('.box .count')
+  console.log(countList.length)
+  if (countList.length == cardsNum) {
+    alert(`Você ganheu em ${cont} jogadas!`)
+  }
 }
-
-/* ======= MATCH CARDS ==========*/
