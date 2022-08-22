@@ -77,6 +77,6 @@ function reveal(a, b) {
   const countList = document.querySelectorAll('.box .count')
   console.log(countList.length)
   if (countList.length == cardsNum) {
-    alert(`Você ganheu em ${cont} jogadas!`)
+    alert(`Você ganhou em ${cont} jogadas!`)
   }
 }
