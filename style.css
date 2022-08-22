@@ -57,8 +57,44 @@ h1{
 
 .card.show{
   display: flex;
+  transition: 0.5s;
+  
 }
 
-.card.javafun img{
+.card.javafun {
+  transform: rotateY(180deg);
+  transition: 0.5s;
   
+}
+.card.count, .card.card.count img {
+  transform: rotateY(180deg);
+
+}
+
+.card.javafun img {
+  transform: rotateY(180deg);
+  transition: 0.5s;
+  
+}
+
+@media(max-width: 481px) {
+  .box {
+    width: 335px;
+    flex-direction: column;
+    margin-top: 47px;
+    
+    align-items: center;
+  }
+
+  .card {
+    margin-right: 0px;
+  }
+
+  
+
+  h1{
+    font: 700 46px 'Roboto', sans-serif ;
+    color: #75B79E;
+    
+  }
 }
