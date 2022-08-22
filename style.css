@@ -46,8 +46,19 @@ h1{
   justify-content: center;
   margin-bottom: 34px;
   margin-right: 34px;
+  display: none;
 }
 
 .card img{
   width: 100px;
+  opacity: 100%;
+  
+}
+
+.card.show{
+  display: flex;
+}
+
+.card.javafun img{
+  
 }
