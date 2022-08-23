@@ -47,37 +47,41 @@ let cont = 0
 let xReveal = 0
 function reveal(a, b) {
   const cardi = a
+  if (
+    cardi.classList.contains('javafun') == false &&
+    cardi.classList.contains('count') == false
+  ) {
+    if (xReveal < 3) {
+      cont++
+      xReveal++
+      cardi.classList.add('javafun')
+      cardi.innerHTML = sorteador[b]
+    }
+    let matchClass = document.querySelectorAll('.box .javafun')
 
-  if (xReveal < 3 && cardi.classList.contains('javafun') == false) {
-    cont++
-    xReveal++
-    cardi.classList.add('javafun')
-    cardi.innerHTML = sorteador[b]
-  }
-  let matchClass = document.querySelectorAll('.box .javafun')
-
-  if (matchClass.length == 2) {
-    if (matchClass[0].innerHTML == matchClass[1].innerHTML) {
-      matchClass[0].classList.remove('javafun')
-      matchClass[1].classList.remove('javafun')
-      matchClass[0].classList.add('count')
-      matchClass[1].classList.add('count')
-      xReveal = 0
-    } else {
-      const bilo = setInterval(noSame, 1000)
-      function noSame() {
+    if (matchClass.length == 2) {
+      if (matchClass[0].innerHTML == matchClass[1].innerHTML) {
         matchClass[0].classList.remove('javafun')
         matchClass[1].classList.remove('javafun')
-        matchClass[0].innerHTML = '<img src="./images/front.png" alt=""/>'
-        matchClass[1].innerHTML = '<img src="./images/front.png" alt=""/>'
-        clearInterval(bilo)
+        matchClass[0].classList.add('count')
+        matchClass[1].classList.add('count')
         xReveal = 0
+      } else {
+        const bilo = setInterval(noSame, 1000)
+        function noSame() {
+          matchClass[0].classList.remove('javafun')
+          matchClass[1].classList.remove('javafun')
+          matchClass[0].innerHTML = '<img src="./images/front.png" alt=""/>'
+          matchClass[1].innerHTML = '<img src="./images/front.png" alt=""/>'
+          clearInterval(bilo)
+          xReveal = 0
+        }
       }
     }
-  }
-  const countList = document.querySelectorAll('.box .count')
-  console.log(countList.length)
-  if (countList.length == cardsNum) {
-    alert(`Você ganhou em ${cont} jogadas!`)
+    const countList = document.querySelectorAll('.box .count')
+    console.log(countList.length)
+    if (countList.length == cardsNum) {
+      alert(`Você ganhou em ${cont} jogadas!`)
+    }
   }
 }
