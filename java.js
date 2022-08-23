@@ -46,10 +46,11 @@ function comparador() {
 let cont = 0
 let xReveal = 0
 function reveal(a, b) {
-  cont++
-  xReveal++
-  if (xReveal < 3) {
-    const cardi = a
+  const cardi = a
+
+  if (xReveal < 3 && cardi.classList.contains('javafun') == false) {
+    cont++
+    xReveal++
     cardi.classList.add('javafun')
     cardi.innerHTML = sorteador[b]
   }
